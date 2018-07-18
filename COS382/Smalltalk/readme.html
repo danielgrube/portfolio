@@ -1,0 +1,112 @@
+**A03 - Smalltalk**
+
+
+General
+========
+
+In this assignment, you will enhance the Polynomial class by adding new message handlers (methods) to create new functionality. The Polynomial class stores the coefficient for each term of a polynomial.
+For example, the polynomial 
+
+
+
+
+
+
+
+
+
+42−3x+5x3
+can be represented by the array #(42 -3 0 5). Note that the third number is 0 because the coefficient corresponding to 
+
+
+x2
+is zero.
+
+
+Submission
+-----------
+
+
+Create a zip file that contains all of your code, this `readme.html` document, and any additional files of evidence (ex: screenshots).
+
+Use folders to divide up the subparts of your submission.
+My submission looks like this.
+
+~~~~
+readme.html
+
+Polynomial.st
+
+test_polynomial.ws
+
+screenshots\
+	sum.png
+	evaluate1.png
+	evaluate2_1.png
+	evaluate2_2.png
+	differentiate.png
+	graphTographFrom.png
+
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: **Daniel Grube**
+
+Which language(s) did you use: **Smalltalk**
+
+
+
+Message Handlers
+================
+
+
+sum:
+--------------------------------
+![Results for `sum:` message handler](screenshots\sum.png)
+<!-- Details and screenshots here -->
+The message handler `sum:` takes the coefficients of two polynomials (in the screenshot, `p` represents "4 + 5x + 12x^3 + 8x^4" and `q` represents "5 + 3x + 6x^2 + 10x^3 + 4x^5"). The message handler uses a loop to add the coefficients together (for example, it will add 5 in 5x to 3 in 3x to get 8) and returns an array with the summed coefficients. So in this example, `sum:` adds the coefficients in `p` and `q` together. The limit for the loop is determined by the length of the longest array.
+
+evaluate:
+--------------------------------
+![Results for `evaluate:` message handler](screenshots\evaluate1.png)
+<!-- Details and screenshots here -->
+The `evaluate:` message handler will take a polynomial (in this example the array `p`), multiply each number by an exponent that is given (in this example, the exponent is 2 and you will get numbers like 4^2 = 20 and 5^2 = 25), and then add all the new numbers together (so in the screenshot it would be 4^2 + 5^2 + 0^2 + 12^2 + 8^2).  Adding the numbers together is done in a loop.
+
+evaluate
+--------------------------------
+![Text box for `evaluate` message handler](screenshots\evaluate2_1.png)
+![Results for `evaluate` message handler](screenshots\evaluate2_2.png)
+<!-- Details and screenshots here -->
+The message handler `evaluate` is the same as `evaluate:` except for the fact that it asks for the exponent as an input by the user instead of being hard coded into the test file.
+
+differentiate
+--------------------------------
+![Results for `differentiate` message handler](screenshots\differentiate.png)
+<!-- Details and screenshots here -->
+The message handler `differentiate` returns the coefficients of the derivative of the polynomial that is given (in this screenshot, array `r` represents "-7 + 5x + 3x^2" which has a derivative of "5 + 6x"). This is done by using a loop that multiplies the coefficient by the exponent.
+
+graphFrom:graphTo:
+--------------------------------
+![Results for `graphFrom:graphTo:` message handler](screenshots\graphTographFrom.png)
+<!-- Details and screenshots here -->
+The message handler `graphFrom:graphTo:` takes the polynomial that is given and graphs it from one point on the x axis to another (in the screenshot, 0-10). To do this, I used the example used in the graphing section of the description for the assignment and I took out `x*x` and replaced it with `self evaluate: x` and it graphs the polynomial.
+
+
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: **2-3 hours**
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+**This assignment was a lot easier than I had anticipated. With Dr. Denning's help with how to get started and other questions answered hear and there, I was able to get the coding done in around an hour and a half. So I was stressing over the assignment a lot more than I needed too.**
+
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

@@ -1,0 +1,97 @@
+**A05 - Paradigm Functional: Haskell**
+
+
+General
+========
+
+The purpose of this assignment is to write Haskell functions to generate prime numbers. We will take advantage of the lazy evaluation feature of Haskell to generate infinite lists used in a sieve approach.
+
+The assignment is based on an assignment used by Dr. Neil Leslie in the Programming Languages course at Victoria University of Wellington in New Zealand.
+
+The Sieve of Eratosthenes is an ancient technique to generate primet numbers dating to the 3rd century BC. The algorithm uses no division, but rather generates composite numbers and defines primes as non-composites.
+
+A prime number is a number with no divisors other than one and itself. A composite number is one with divisors other than one and itself.
+
+
+Submission
+-----------
+
+
+Here is what my submission will look like:
+
+~~~~
+readme.html
+haskell.hs
+screenshots\
+	prods.png
+	mix.png
+	sieve.png
+	firstn.png
+	primesto.png
+
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: **Daniel Grube**
+
+Which language(s) did you use: **Haskell**
+
+
+
+Functions
+================
+
+
+prods n
+--------------------------------
+![Results for `prods n`](screenshots/prods.png)
+<!-- Details and screenshots here -->
+The function `prods` takes an integer and returns an infinite list of integers of that integer's multiples starting at `n*n` and goes on from there. So in the results in the secreenshot to the right, I used the `take` function to limit the number of integers in the list. If I didn't use `take`, the list would go infinitely. In the results, `n = 3` and the list starts with `n*n` (9) and goes on from there with 12, 15, and so on. 
+
+mix
+--------------------------------
+![Results for `mix`](screenshots/mix.png)
+<!-- Details and screenshots here -->
+The function `mix` takes two lists of integers in ascending order and returns an infinite list of a mixture of the two lists without any repeats. It moves to the heads of both lists. If the head of list A is smaller than the head of list B, it then uses recursion and moves to the next element in list B. If the head of list A is larger than the head of list B, it will then do the same thing as the last action stated but move to the next element in list A. If the heads of list A and list B are the same, it will do the same thing that it does if head A is smaller than head B. In the results, I used the `take` function so the list won't be infinite, but it puts the mixture of `prods 5` and `prods 7` in order without repeats.
+
+sieve
+--------------------------------
+![Results for `sieve`](screenshots/sieve.png)
+<!-- Details and screenshots here -->
+The function `sieve` takes in a list of integers starting with 2 and infinitely ascends by 1 (numbers list) and an empty list (composits list) and returns an infinite list of the integers from the first list that are prime (primes list). It uses a helper function to find out if a number is in the list. This function is is similar to `elem`, but takes into account infinite lists and is only for lists in ascending order. It puts the composits of the number in the primes list and puts them in the composits list. If the number it's looking at in the numbers list is not in the composits list, it puts the number in the primes list and its composits in the composit list. If the number is in the composits list, then it moves on to the next number in the numbers list. In the results above, you can see that it is returning a list of prime numbers. It says `Interrupted` at the end because I killed the function because it would have gone on forever.
+
+firstn n
+--------------------------------
+![Results for `firstn n`](screenshots/firstn.png)
+<!-- Details and screenshots here -->
+The function `firstn` takes in an integer `x`, uses the `take` function on sieve with `x`, and returns a list of the first `x` primes in sieve. The results show the first 20 primes.  
+
+primesto n
+--------------------------------
+![Results for `primesto n`](screenshots/primesto.png)
+<!-- Details and screenshots here -->
+The function `primesto` does the same thing as `firstn` but uses `takeWhile` instead of `take`. It takes in an integer `x`, uses `takeWhile` on `sieve` with `x`, and returns a list of primes up to and including `x`. In the `takeWhile` function it has `<=x` to return any number in `sieve` that is less than or including `x`. The results show a list of all the primes up to 20 and a list of all the primes up to 7.  
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: **4 hours**
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+**The biggest struggle was with beginning to think in Haskell. Once that started happening, it got a lot easier.**
+
+
+
+<!--
+
+Leave the following, as this will format your text above to look nice.
+
+-->
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

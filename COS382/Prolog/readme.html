@@ -1,0 +1,110 @@
+**A04 - Paradigm Logic: Prolog**
+
+
+General
+========
+
+The goal of this assignment is to write a collection of Prolog rules to represent and manipulate binary trees. Prolog's two primary data structures will be used: symbolic structures and lists. Structures are somewhat similar to records in imperative languages. Both structures and lists are inherently recursive. Structures are more fundamental in that list notation is "syntatic sugar" for a structure-based list representation.
+
+
+Submission
+-----------
+
+
+Create a zip file that contains all of your code, this `readme.html` document, and any additional files of evidence (ex: screenshots).
+
+This is how the zip file looks:
+
+~~~~
+readme.html
+tree.pl
+screenshots\
+	inorder.png
+	subtree.png
+	sumtree.png
+	ordered.png
+	search.png
+	substitute.png
+	trees.png
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: **Daniel Grube**
+
+Which language(s) did you use:  **Prolog**
+
+
+
+Implementations
+================
+Here are visuals of what the example trees look like:
+![Example trees](screenshots\trees.png width="500px")
+
+Rule: inorder(Tree, In)
+--------------------------------
+![Results for inorder](screenshots\inorder.png)
+
+<!-- Details and screenshots here -->
+This rule is to display the numbers in the bst in a list in inorder sequence (left,middle,right). The first recursion takes the numbers in the `L` branch and stores them in `Ls` and the second recursion takes the numbers in the `R` branch and stors them in the `Rs`. The appends essentially take `Ls` and append `X` (the root) and `Rs` and store them in `Xs` in the inorder sequence. The top result is the inorder list of `tree1`, the middle one is `tree2`, and the bottom one is `tree3`.
+
+Rule: subtree(S, T)
+--------------------------------
+![Results for subtree](screenshots\subtree.png)
+
+<!-- Details and screenshots here -->
+This rule checks to see if subtree `S` is in tree `T`. First it uses the rule `eqltree` to see if `S` is the same tree as `T`.  Then it uses recusion to see if subtree `S` is in the right branch of tree `T` and then it checks to see if it's in the right branch.  The top result to see if a subtree is in `tree3` (the subtree is the right branch of `tree3`) and returns true. The middle result does the same thing (with a subtree that is not in `tree3`) and returns false. The bottom result is to see if a subtree is in `tree1`(the subtree is the exact same tree as `tree1`) and returns true.
+
+Rule: sumtree(TreeOfIntegers, Sum)
+--------------------------------
+![Results for sumtree](screenshots\sumtree.png)
+
+<!-- Details and screenshots here -->
+This rule returns the sum of all the numbers in the binary search tree. The first recursion takes the numbers in the left branch and adds them together into `Lsum`. Then it does the same thing with the right branch and puts the sum in `Rsum`. Last it adds `Rsum`,`Lsum`, and `X` (root) and puts the result into `Xs`. The top result sums the numbers in `tree1` and displays the sum: `X=6`. The middle result does the same thing with `tree2`: `X=15`. The bottom result does the same with `tree3`: `X=24`.
+
+Rule: ordered(TreeOfIntegers)
+--------------------------------
+![Results for ordered](screenshots\ordered.png)
+
+<!-- Details and screenshots here -->
+This rule checks to see if the Binary Search Tree is in order. It first checks to see if the root is bigger than the left branch. It then checks to see if the root is smaller than everything on the right branch. It then does the same thing within the right and the left branch. The top result shows a tree that is in order. The bottom result shows a tree that is not in order.
+
+Rule: search(TreeOfIntegers, Key)
+--------------------------------
+![Results for search](screenshots\search.png)
+
+<!-- Details and screenshots here -->
+This rule goes through the tree to see if `Key` is in `TreeOfIntegers` using linear runtime. It first checks to see if `Key` is equal to the root of the tree. It then goes in and looks to see if `Key` is in the left branch. After the left branch, it checks to see if `Key` is in the right branch. The top result shows `search` checking to see if `3` is in `tree3` and returns true. The middle result shows `search` checking to see if `6` is in `tree3` and returns true. The bottom result shows `search` checking to see if `9` is in `tree3` and returns false.
+
+Rule: substitute(X, Y, TreeX, TreeY)
+--------------------------------
+![Results for substitute](screenshots\substitute.png)
+<!-- Details and screenshots here -->
+This rule removes any instance of `X` in `TreeX` and replaces it with `Y` resulting in `TreeY`. It first checks to see if `X` and `Y` are the same. If they are not equal than it checks the root and then looks at every instance in the left branch and then the right branch, make any necessary changes. It displays the `TreeY` and then `TreeX`. The top result shows every instance of `1` changed to `4` in `tree1`. The middle result shows every instance of `5` changed to `2` in `tree2`. The bottom result shows every instance of `5` bing changed to `9` in `tree3`.
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: **6 hours**
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+**This assignment was tougher than the last ones because I was using a language that was not a Von Neumann language and was hard to wrap my mind around how Prolog works.**
+
+
+
+
+
+
+
+<!--
+
+Leave the following, as this will format your text above to look nice.
+
+-->
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

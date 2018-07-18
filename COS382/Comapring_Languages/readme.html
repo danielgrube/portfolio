@@ -1,0 +1,115 @@
+**A00 - Comparing Languages**
+
+
+General
+========
+
+For each of your team's implementations, explain the following (where appropriate and applicable):
+
+- details on calling conventions, input and output data formats, limitations, bugs, and special features.
+- negative aspects of your program (limitations, known bugs)
+- positive aspects (extensions, special features)
+- describe your choice of modularization (abstractions), data structures, and algorithms
+- explain anything you did that is likely to be different from what other students may have done
+- justify any design decisions for which the rationale isn't immediately clear
+
+Feel free to modify the structure of this `readme.html` file to fit the current assignment and to fit how you wish to present your findings.
+
+
+Submission
+-----------
+
+
+Create a zip file that contains all of your code, this `readme.html` document, and any additional files of evidence (ex: screenshots).
+
+Use folders to divide up the subparts of your submission.
+For example, your zip file could look like the following:
+
+~~~~
+readme.html
+ada/
+    primepartitions.adb
+    screenshot.png
+go/
+    primepartitions.go
+    screenshot.png
+haskell/
+    primepartitions.hs
+    screenshot.png
+prolog/
+    primepartitions.pl
+    screenshot.png
+python/
+    primepartitions.py
+    screenshot.png
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: **Daniel Grube**
+
+Partner's name (if applicable): **Josh James**
+
+Which language(s) did you use: **Ruby, C#, Haskell**
+
+Which language(s) did your partner use:  **Ada, Prolog**
+
+
+
+Implementations
+================
+
+
+Language: Ada
+--------------------------------
+In the is_primes function, an integer passes through and return a boolean (true for prime and false for not prime) This is very similar to Ruby and C#, but very different syntax.  The next function creates an array for all the numbers. Like C# and Ruby it fallows a similar structure but with very different syntax.
+![A screenshot of the ada results](screenshot_ada.png width="600px")
+<!-- Details and screenshots here -->
+
+
+Language: Haskell
+--------------------------------
+It was a big mistake on my part to wait until the day that the assignment was due to finally look at Haskell. Haskell is very different than any other language that I've worked with in the past and there was no way for me personally to learn Haskell and write the program in the same day. I was able to get the isPrime function working, so it will tell you if the number that is being passed through is prime or not. It goes from 2 to whatever number was passed through to check if there is no remainder for each number from 2 to the number before the one that was passed through. I also have the very beginning of the PrimePartitonConstrictive fuction layed out, but it's commented out.
+![A screenshot of the haskell results](Screenshot_haskell.png width="600px")
+<!-- Details and screenshots here -->
+
+Language: C#
+--------------------------------
+This code is similar to the Ruby code, but with different syntax. The is_prime function checks to see if the number passed through (n) and checks to see if the remainders from dividing n with 2 up to the square root of n. If it is prime, it returns true. The prime_part_constructive is very similar to the Ruby.
+![A screenshot of the c# results](screenshot_csharp.png width="600px")
+
+
+Language: Ruby
+--------------------------------
+
+With this one, it was pretty simple to figure out because of the fact that Ruby is fairly similar to Python. The is_prime function, just like in the python, goes through and sees if the number that has been passed through is actually a prime number. In the prime_part_constructive function, it passes the number the user picked (n), 1 (k), and an empty array ([]).  First, it checks n equals 0. This function uses recursion. If it does, it will print out the array with "+"s inbetween all the numbers of the array (this shows that the numbers in the array add up to the number that the user has picked). If n does not equal 0, it then checks if n is less than or equal to k. If n is less than k, it hops out of the function and into the previous layer of recursion.  If n is still greater than k, it then moves on into the for loop where i iterates from k+1 to n+1. First in the loop, it checks if i is a prime number using is_prime. If i is not a prime, the loop starts over and goes through that sequence until i is a prime number. When is_prime returns true for i, it then moves on to call itself and passes through n-i, i, and lst with i added to it. When after n == 0 or n <= k, it hops out to the previous recursive layer and takes off the last element of lst.
+
+![A screenshot of the ruby results](screenshot_ruby.png width="600px")
+
+Language: Prolog
+--------------------------------
+This one is just a mess.  They follow different structures than the others and since it's now right before this assignment is due, I won't have time to explain how the file runs.
+![A screenshot of the prolog results](Screenshot_prolog.png width="600px")
+<!-- Details and screenshots here -->
+
+Language: Scheme (extra credit)
+--------------------------------
+
+<!-- Details and screenshots here -->
+
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: **30-40 hours**
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+**It was fun at times and frustrating at others. I think the hardest part was having to learn/relearn different languages. Why would people even want to use Haksell?**
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

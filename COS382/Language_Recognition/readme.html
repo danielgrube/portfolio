@@ -1,0 +1,96 @@
+**A01 - Languages Recognition**
+
+
+General
+========
+
+The purpose of this assignment is to investigate various approaches to recognizing sentences in a simple language. The language to be used represents references to scripture passages.
+
+Submission
+-----------
+
+
+Create a zip file that contains all of your code, this `readme.html` document, and any additional files of evidence (ex: screenshots).
+
+Use folders to divide up the subparts of your submission.
+
+My zip file looks like this:
+
+~~~~
+readme.html
+antlr_java/
+    gen/
+	language.tokens
+	languageLexer.tokens
+    out/
+	//other folders that aren't relevant fo this readme
+    src/
+	language.g4
+	languageBaseListener.java
+	languageBaseVisitor.java
+	languageLexer.java
+	languageListener.java
+	languageParser.java
+	languageVisitor.java
+	TestLanguage_Recognition.java
+    language_recognition.iml
+    antlr_java.png
+rdp_c/
+    a.out
+    lexer0.c
+    rdp_parser.c
+    tokens.h
+    rdp_c.png
+regex_perl/
+    regex_parser.pl
+    regex_perl.png
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: **Daniel Grube**
+
+
+
+Implementations
+================
+
+
+Recursive Descent Parser (RDP) in C
+--------------------------------
+![Screenshot of the results for the RDP parser](rdp_c/rdp_c.png width="600px")
+
+The Recursive Descent Parser first looks at the verse with the next() function. If there's a string of numbers, it puts a "D" in the string as a special character. It there's a string of letters, it puts a "N" in a string as a special character. And it also includes the characters ";", ":", ",", "(", ")", "-", "\n", and "\r" in the string.  Then with the match() function, it looks to see if the character that is passed through matches with the current character in the new string. In the main() function, it checks to see if what was passed through is a verse by using the parse_scripture() function. This function calls the parse_book(), parse_referenct(), and parse_translation() functions to see if it is actually a verse by using these functions to call other various functions look to see if the characters fit the grammar for a verse. If what is passed through is a verse, the program will prompt the user to enter another verse by going down a line. If it is not a verse, the program will through an error and end.
+<!-- Details and screenshots here -->
+
+
+ANTLR Code and Java
+--------------------------------
+![Screenshot of the results for the ANTLR Code](antlr_java/antlr_java.png width="600px")
+
+This uses ANTLR to make the grammar for the verses. It sends in a verse and looks at the grammar in language.g4 to see if the grammar is correct. It tells the Java files to ignore whitespace and to treet the \r character as a newline. With the screenshot for this, there is no results because it passed all the example verses in the test file that needed to pass. If it didn't pass the example verses, it would have shown errors to say why it didn't pass. But since they're all passing, nothing is printed.
+<!-- Details and screenshots here -->
+
+Regular Exrpession in Perl
+--------------------------------
+![Screenshot of the results for the Regex in Perl](regex_perl/regex_perl.png width="600px")
+
+For the regular expression, I made a long regular expression that checks to see if the verse is actually a verse. I did this by making regular expressions for each part of the grammar, starting with *letters* and *digits* and combining the regular expressions until I got a big regular expression *S*. I then went back to turn those regular expressions into the notation that would be used in Perl. I tested these with the online RegEx tester and debugger provided on Moodle. It was able to match all the examples. The only issue is that as long as you have a book in the string, it will pass anything. So you could put John 3:16% and it would still pass.
+<!-- Details and screenshots here -->
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: **7-10 hours**
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+**I thought this was a good assignment. The C parser was confusing at first but once I got help from Dr. Denning, I was able to complete it with ease.**
+
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
